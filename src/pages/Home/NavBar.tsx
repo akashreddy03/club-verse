@@ -7,6 +7,9 @@ import {
   AiOutlineSearch,
 } from "react-icons/ai";
 
+// import { text } from "stream/consumers";s
+import { CgProfile } from "react-icons/cg";
+
 const links = [
   {
     text: "Home",
@@ -32,6 +35,11 @@ const links = [
     text: "Search",
     route: "",
     icon: <AiOutlineSearch size={26} />,
+  },
+  {
+    text: "Profile",
+    route: "/profile",
+    icon: <CgProfile size={26} />,
   },
 ];
 
