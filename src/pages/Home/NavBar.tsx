@@ -10,6 +10,8 @@ import {
 // import { text } from "stream/consumers";s
 import { CgProfile } from "react-icons/cg";
 
+const username = "ISF CLUB";
+
 const links = [
   {
     text: "Home",
@@ -38,7 +40,7 @@ const links = [
   },
   {
     text: "Profile",
-    route: "/profile",
+    route: `/profile/${username}`,
     icon: <CgProfile size={26} />,
   },
 ];
