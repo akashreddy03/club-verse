@@ -1,8 +1,9 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useParams } from "react-router-dom";
 
 const ClubProfileCard = () => {
-  const { username } = useParams();
-  const displayedUserName = username || "Devendra";
+  const { clubid } = useParams();
+  const displayedUserName = clubid || "ISF";
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -43,18 +44,32 @@ const ClubProfileCard = () => {
       </div>
 
       {/* Additional Content to Ensure Scrolling */}
-      <div className="flex flex-col md:flex-row justify-center items-start gap-8 bg-gray-200 mt-4">
-        <div className="flex w-full justify-evenly md:w-full border-b">
-          <button className="font-semibold flex-1 bg-gray-500 text-black px-4 py-2 mx-1 rounded-lg hover:bg-gray-900 hover:text-white transition-colors">
-            Core Committee
-          </button>
-          <button className="font-semibold flex-1 bg-gray-500 text-black px-4 py-2 mx-1 rounded-lg hover:bg-gray-900 hover:text-white transition-colors">
-            Coordinators
-          </button>
-          <button className="font-semibold flex-1 bg-gray-500 text-black px-4 py-2 mx-1 rounded-lg hover:bg-gray-900 hover:text-white transition-colors">
-            Events
-          </button>
-        </div>
+      <div className="flex flex-col md:flex-row justify-center items-start gap-8 mt-4">
+        <Tabs defaultValue="core-committee" className="w-full">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="core-committee">Core Committee</TabsTrigger>
+            <TabsTrigger value="coordinators">Coordinators</TabsTrigger>
+            <TabsTrigger value="events">Events</TabsTrigger>
+          </TabsList>
+          <TabsContent value="core-committee">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam
+            distinctio consectetur odio harum, repudiandae possimus esse
+            voluptatem et quisquam ullam minus illum enim laboriosam error
+            delectus earum libero. Laudantium, consequatur?
+          </TabsContent>
+          <TabsContent value="coordinators">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+            cupiditate sunt fuga minima laboriosam tempora, illum quas qui,
+            autem quis exercitationem suscipit repudiandae voluptatem. Aliquam
+            nisi dicta nobis sit amet?
+          </TabsContent>
+          <TabsContent value="events">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
+            explicabo ex ullam illo voluptas, impedit dolorem debitis sapiente
+            molestias, laboriosam aspernatur voluptatem, beatae velit
+            praesentium molestiae! Facilis neque atque placeat!
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

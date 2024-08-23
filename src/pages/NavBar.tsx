@@ -7,13 +7,9 @@ import {
   AiOutlineSearch,
 } from "react-icons/ai";
 
-// import { text } from "stream/consumers";s
 import { CgProfile } from "react-icons/cg";
 
-// const username = "ISF CLUB";
-const studentName = "Gangasani DevendraNatha Reddy";
-const userId = "deva@21ec108";
-const batch = "2021-2025";
+const username = "dev2003";
 
 const links = [
   {
@@ -43,9 +39,9 @@ const links = [
   },
   {
     text: "Profile",
-    route: `/profileuser/${studentName}/${userId}/${batch}`,
+    route: `/u/${username}`,
     icon: <CgProfile size={26} />,
-  },
+  }
 ];
 
 export default function NavBar() {

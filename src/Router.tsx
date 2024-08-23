@@ -1,12 +1,28 @@
 import { createBrowserRouter } from "react-router-dom";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
-// import ProfileCard from "./pages/ClubProfile/Profile";
 import Home from "./pages/Home/Home";
 import UserProfile from "./pages/UserProfile/ProfileUser";
+import ClubProfileCard from "./pages/ClubProfile/Profile";
+import Layout from "./pages/Layout";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home /> },
+
+      {
+        path: "/u/:username",
+        element: <UserProfile />,
+      },
+      {
+        path: "/c/:clubid",
+        element: <ClubProfileCard />,
+      },
+    ],
+  },
   {
     path: "/login",
     element: <Login />,
@@ -14,10 +30,6 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
-  },
-  {
-    path: "/profileuser/:studentName/:userId/:batch",
-    element: <UserProfile />,
   },
 ]);
 
