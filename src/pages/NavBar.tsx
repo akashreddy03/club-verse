@@ -41,7 +41,7 @@ const links = [
     text: "Profile",
     route: `/u/${username}`,
     icon: <CgProfile size={26} />,
-  }
+  },
 ];
 
 export default function NavBar() {
