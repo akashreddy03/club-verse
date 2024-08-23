@@ -7,10 +7,9 @@ import {
   AiOutlineSearch,
 } from "react-icons/ai";
 
-// import { text } from "stream/consumers";s
 import { CgProfile } from "react-icons/cg";
 
-const username = "ISF CLUB";
+const username = "dev2003";
 
 const links = [
   {
@@ -40,7 +39,7 @@ const links = [
   },
   {
     text: "Profile",
-    route: `/profile/${username}`,
+    route: `/u/${username}`,
     icon: <CgProfile size={26} />,
   },
 ];
