@@ -10,6 +10,7 @@ import {
 import { CgProfile } from "react-icons/cg";
 
 const username = "dev2003";
+// const clubname = "isf";
 
 const links = [
   {
