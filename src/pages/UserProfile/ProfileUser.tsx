@@ -1,6 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Label } from "@radix-ui/react-label";
+import { Input } from "@/components/ui/input";
 import { useParams } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+  DialogDescription,
+  DialogHeader,
+} from "@/components/ui/dialog";
+import { DialogFooter } from "@/components/ui/dialog";
+import ClubCard from "@/components/ui/clubcard";
 
 const UserProfile = () => {
   const { username } = useParams();
@@ -34,7 +46,36 @@ const UserProfile = () => {
             {/* <button className="bg-blue-600 text-white px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 text-sm md:text-base lg:text-lg rounded-md md:rounded-full shadow-lg transform transition-transform hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
             Edit Profile
           </button> */}
-            <Button>Edit Profile</Button>
+            {/* <Button>Edit Profile</Button> */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button>Edit Profile</Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Edit Profile</DialogTitle>
+                  <DialogDescription>
+                    Make Changes to your Profile here. Click save when you're
+                    done.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name" className="text-right">
+                      Name
+                    </Label>
+                    <Input
+                      id="name"
+                      defaultValue={username}
+                      className="col-span-3"
+                    ></Input>
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button type="submit"> Save Changes</Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
 
@@ -46,16 +87,20 @@ const UserProfile = () => {
               <TabsTrigger value="events">Events</TabsTrigger>
             </TabsList>
             <TabsContent value="clubs">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam
-              distinctio consectetur odio harum, repudiandae possimus esse
-              voluptatem et quisquam ullam minus illum enim laboriosam error
-              delectus earum libero. Laudantium, consequatur?
+              <ClubCard name="#Club-1" />
+              <ClubCard name="#Club-1" />
+              <ClubCard name="#Club-1" />
+              <ClubCard name="#Club-1" />
             </TabsContent>
             <TabsContent value="events">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
-              explicabo ex ullam illo voluptas, impedit dolorem debitis sapiente
-              molestias, laboriosam aspernatur voluptatem, beatae velit
-              praesentium molestiae! Facilis neque atque placeat!
+              <Tabs defaultValue="Participated">
+                <TabsList className="grid grid-cols-2 ">
+                  <TabsTrigger value="Participated"> Participated</TabsTrigger>
+                  <TabsTrigger value="Upcoming">Upcoming</TabsTrigger>
+                </TabsList>
+                <TabsContent value="Participated"></TabsContent>
+                <TabsContent value="Upcoming"></TabsContent>
+              </Tabs>
             </TabsContent>
           </Tabs>
         </div>
